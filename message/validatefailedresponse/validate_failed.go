@@ -11,6 +11,10 @@ var (
 	_ message.ResponseInterface = (*FailedResponse)(nil)
 )
 
+const (
+	Name = "ValidateFailed"
+)
+
 func init() {
 	message.RegisterDefinedResponse(FailedResponse{})
 }
@@ -24,10 +28,6 @@ type (
 		Data   interface{} `json:"data"`
 		Reason error       `json:"reason"`
 	}
-)
-
-const (
-	Name = "ValidateFailed"
 )
 
 func (v FailedResponse) Name() string {
