@@ -1,7 +1,5 @@
 package message
 
-import "strings"
-
 type (
 	Transformer interface {
 		Name() string
@@ -18,7 +16,7 @@ func RegisterTransformer(transformer Transformer) {
 	if transformer.Name() == "" {
 		panic("cannot register transformer with empty string result for Name()")
 	}
-	name := strings.ToLower(transformer.Name())
+	name := transformer.Name()
 	registeredTransformer[name] = transformer
 }
 

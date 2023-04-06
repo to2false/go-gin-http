@@ -2,7 +2,6 @@ package message
 
 import (
 	"context"
-	"strings"
 )
 
 type (
@@ -28,7 +27,7 @@ func RegisterDefinedResponse(response ResponseInterface) {
 	if response.Name() == "" {
 		panic("cannot register response with empty string result for Name()")
 	}
-	name := strings.ToLower(response.Name())
+	name := response.Name()
 	registeredResponse[name] = response
 }
 
