@@ -1,9 +1,11 @@
 package message
 
+import "context"
+
 type (
 	Transformer interface {
 		Name() string
-		Transform(response any) any
+		Transform(ctx context.Context, response any) any
 	}
 )
 

@@ -1,5 +1,7 @@
 package message
 
+import "context"
+
 type (
 	// DefaultTransformer Do nothing
 	DefaultTransformer struct {
@@ -20,6 +22,6 @@ func (t DefaultTransformer) Name() string {
 	return DefaultTransformerName
 }
 
-func (DefaultTransformer) Transform(response any) any {
+func (DefaultTransformer) Transform(ctx context.Context, response any) any {
 	return response
 }
