@@ -1,11 +1,14 @@
 package message
 
-import "context"
+import (
+	"context"
+	"google.golang.org/protobuf/proto"
+)
 
 type (
 	Transformer interface {
 		Name() string
-		Transform(ctx context.Context, response any) any
+		Transform(ctx context.Context, response proto.Message) any
 	}
 )
 

@@ -1,6 +1,9 @@
 package message
 
-import "context"
+import (
+	"context"
+	"google.golang.org/protobuf/proto"
+)
 
 type (
 	// DefaultTransformer Do nothing
@@ -22,6 +25,6 @@ func (t DefaultTransformer) Name() string {
 	return DefaultTransformerName
 }
 
-func (DefaultTransformer) Transform(ctx context.Context, response any) any {
+func (DefaultTransformer) Transform(ctx context.Context, response proto.Message) any {
 	return response
 }
