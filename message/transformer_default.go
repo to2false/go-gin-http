@@ -32,6 +32,9 @@ func (t DefaultTransformer) ContentType() string {
 	return "application/json"
 }
 
+func (t DefaultTransformer) PreProcessRequest(r *http.Request) {
+}
+
 func (DefaultTransformer) Transform(ctx context.Context, response proto.Message) (int, []byte, error) {
 	data, err := encoding.GetCodec(json.Name).Marshal(response)
 
