@@ -32,7 +32,8 @@ func (t DefaultTransformer) ContentType() string {
 	return "application/json"
 }
 
-func (t DefaultTransformer) PreProcessRequest(r *http.Request) {
+func (t DefaultTransformer) PreProcessRequest(r *http.Request) error {
+	return nil
 }
 
 func (DefaultTransformer) Transform(ctx context.Context, response proto.Message) (int, []byte, error) {

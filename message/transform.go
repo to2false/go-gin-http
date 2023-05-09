@@ -10,7 +10,7 @@ type (
 	Transformer interface {
 		Name() string
 		ContentType() string
-		PreProcessRequest(r *http.Request)
+		PreProcessRequest(r *http.Request) error
 		Transform(ctx context.Context, response proto.Message) (int, []byte, error)
 		Err(ctx context.Context, err error) (int, []byte, error)
 	}
