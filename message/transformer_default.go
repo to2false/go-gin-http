@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/to2false/go-gin-http/encoding"
 	"github.com/to2false/go-gin-http/encoding/json"
-	"google.golang.org/protobuf/proto"
 	"net/http"
 )
 
@@ -36,7 +35,7 @@ func (t DefaultTransformer) PreProcessRequest(r *http.Request) error {
 	return nil
 }
 
-func (DefaultTransformer) Transform(ctx context.Context, response proto.Message) (int, []byte, error) {
+func (DefaultTransformer) Transform(ctx context.Context, response any) (int, []byte, error) {
 	data, err := encoding.GetCodec(json.Name).Marshal(response)
 
 	return http.StatusOK, data, err

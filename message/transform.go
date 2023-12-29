@@ -2,7 +2,6 @@ package message
 
 import (
 	"context"
-	"google.golang.org/protobuf/proto"
 	"net/http"
 )
 
@@ -11,7 +10,7 @@ type (
 		Name() string
 		ContentType() string
 		PreProcessRequest(r *http.Request) error
-		Transform(ctx context.Context, response proto.Message) (int, []byte, error)
+		Transform(ctx context.Context, response any) (int, []byte, error)
 		Err(ctx context.Context, err error) (int, []byte, error)
 	}
 )
