@@ -51,7 +51,7 @@ func GinHandlerWrap[REQ any, RESP any](
 			return
 		}
 
-		if ginValidate(c, transformer, in) {
+		if ginValidate(c, transformer, &in) {
 			return
 		}
 
